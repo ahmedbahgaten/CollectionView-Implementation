@@ -9,11 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    //MARK:-Variables
     var collectionData = ["1","2","3","4","5","6","7","8","9","10","11","12"]
+    //MARK:-Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var addbutton :UIBarButtonItem!
     @IBOutlet weak var deleteButton:UIBarButtonItem!
-    
+    //MARK:-Actions
     @IBAction func addButton() {
         let text = "\(collectionData.count + 1 )"
         collectionData.append(text)
@@ -30,12 +32,14 @@ class ViewController: UIViewController {
             navigationController?.isToolbarHidden = true
         }
     }
+    //MARK:-ViewDidLoad
     override func viewDidLoad() {
            super.viewDidLoad()
            setCellSize()
            setRefresher()
            navigationController?.isToolbarHidden = true
        }
+    //MARK:-functions
     func setRefresher() {
         let Refresh = UIRefreshControl()
         Refresh.tintColor = .white
@@ -65,6 +69,12 @@ class ViewController: UIViewController {
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: width)
     }
+        @objc func refresh() {
+            addButton()
+            collectionView.refreshControl?.endRefreshing()
+        }
+    
+//MARK:-Segue for data transfer
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            if segue.identifier == "detailSegue" {
                
@@ -73,9 +83,5 @@ class ViewController: UIViewController {
             dest.selection = collectionData[indexPath.row]
            }
        }
-    }
-    @objc func refresh() {
-        addButton()
-        collectionView.refreshControl?.endRefreshing()
     }
 }
