@@ -20,7 +20,7 @@ class CollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isEditing {
-                selectionImage.image = isSelected ? UIImage(named: "Graphicloads-100-Flat-2-Check-1") : UIImage(named: "12090335861556281944-512")
+                selectionImage.image = isSelected ? UIImage(named: "Checked") : UIImage(named: "Unchecked")
             }
         }
     }
