@@ -17,7 +17,10 @@ extension ViewController:UICollectionViewDataSource,UICollectionViewDelegate {
        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
        cell.titleLabel.text = collectionData[indexPath.row]
        cell.isEditing = isEditing
-     
+    cell.layer.cornerRadius = cell.layer.frame.size.width/2
+    cell.layer.masksToBounds = true
+    
+    
        return cell
    }
    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -32,7 +35,7 @@ extension ViewController:UICollectionViewDataSource,UICollectionViewDelegate {
    }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if isEditing {
-            if let selected = collectionView.indexPathsForSelectedItems, selected.count == 0 {
+            if let selected = collectionView.indexPathsForSelectedItems,  selected.count == 0 {
                 navigationController?.isToolbarHidden = true
             }
         }

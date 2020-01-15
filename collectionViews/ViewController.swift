@@ -29,16 +29,16 @@ class ViewController: UIViewController {
                 collectionData.remove(at:item)
             }
             collectionView.deleteItems(at: selected)
-            navigationController?.isToolbarHidden = true
+            hideToolBar()
         }
     }
     //MARK:-ViewDidLoad
     override func viewDidLoad() {
-           super.viewDidLoad()
-           setCellSize()
-           setRefresher()
-           navigationController?.isToolbarHidden = true
-       }
+        super.viewDidLoad()
+        setNumberOfColoumnsAndCellSize()
+        setRefresher()
+        hideToolBar()
+    }
     //MARK:-functions
     func setRefresher() {
         let Refresh = UIRefreshControl()
@@ -46,6 +46,10 @@ class ViewController: UIViewController {
         Refresh.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
         collectionView.refreshControl = Refresh
         navigationItem.leftBarButtonItem = editButtonItem
+    }
+    @objc func refresh() {
+        addButton()
+        collectionView.refreshControl?.endRefreshing()
     }
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
@@ -61,27 +65,24 @@ class ViewController: UIViewController {
         }
         deleteButton.isEnabled = isEditing
         if !editing {
-        navigationController?.isToolbarHidden = true
+            hideToolBar()
+        }
     }
-    }
-    func setCellSize() {
+    func setNumberOfColoumnsAndCellSize() {
         let width = (view.frame.size.width - 20) / 3
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: width)
     }
-        @objc func refresh() {
-            addButton()
-            collectionView.refreshControl?.endRefreshing()
-        }
-    
-//MARK:-Segue for data transfer
+    func hideToolBar() {
+        navigationController?.isToolbarHidden = true
+    }
+    //MARK:-Segue for data transfer
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           if segue.identifier == "detailSegue" {
-               
-           if let dest = segue.destination as? DetailViewController{
-            guard let indexPath = collectionView.indexPathsForSelectedItems?.first else {return}
-            dest.selection = collectionData[indexPath.row]
-           }
-       }
+        if segue.identifier == "detailSegue" {
+            if let dest = segue.destination as? DetailViewController{
+                guard let indexPath = collectionView.indexPathsForSelectedItems?.first else {return}
+                dest.selection = collectionData[indexPath.row]
+            }
+        }
     }
 }

@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="H4p-6j-n9a">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="H4p-6j-n9a">
+                                <rect key="frame" x="0.0" y="98" width="414" height="725"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yFT-p4-xJq">
                                     <size key="itemSize" width="200" height="200"/>
@@ -40,18 +40,18 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="12090335861556281944-512" translatesAutoresizingMaskIntoConstraints="NO" id="uqo-QP-3so">
-                                                    <rect key="frame" x="170" y="170" width="22" height="22"/>
+                                                    <rect key="frame" x="156" y="150" width="22" height="22"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="22" id="6wu-XD-AMa"/>
-                                                        <constraint firstAttribute="height" constant="22" id="fLl-3g-ymN"/>
+                                                        <constraint firstAttribute="width" constant="22" id="Eb5-kx-dno"/>
+                                                        <constraint firstAttribute="height" constant="22" id="VOw-GM-V78"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="uqo-QP-3so" secondAttribute="bottom" constant="8" id="3mS-ep-nO4"/>
-                                                <constraint firstAttribute="trailing" secondItem="uqo-QP-3so" secondAttribute="trailing" constant="8" id="DYl-Hg-oza"/>
+                                                <constraint firstAttribute="trailing" secondItem="uqo-QP-3so" secondAttribute="trailing" constant="22" id="7KL-BM-Oxm"/>
                                                 <constraint firstItem="cqf-v9-YZS" firstAttribute="centerX" secondItem="3xO-76-VBl" secondAttribute="centerX" id="JF3-0u-PnF"/>
                                                 <constraint firstItem="cqf-v9-YZS" firstAttribute="centerY" secondItem="3xO-76-VBl" secondAttribute="centerY" id="fWm-45-q8d"/>
+                                                <constraint firstAttribute="bottom" secondItem="uqo-QP-3so" secondAttribute="bottom" constant="28" id="x5r-If-5vG"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
